@@ -10,26 +10,26 @@
 </div>
 <div id="col-body">
 </div>
-<div class="row" style="padding-top: 10px">
+<div ng-repeat="record in records" class="row" style="padding-top: 10px">
     <div class="col-xs-1">
-        <input id="devId" type="number" class="form-control" placeholder="ID">
+        <input ng-model="record.id" id="devId" class="form-control" placeholder="ID">
     </div>
     <div class="col-xs-3">
-        <input id="name" type="text" class="form-control" placeholder="DEVELOPER NAME">
+        <input ng-model="record.name" id="name" type="text" class="form-control" placeholder="DEVELOPER NAME">
     </div>
     <div class="col-xs-3">
-        <input id="project" type="text" class="form-control awesomplete searchProjects" placeholder="SELECT A PROJECT" list="matchingProjects">
+        <input ng-model="record.project" id="project" type="text" class="form-control awesomplete searchProjects" placeholder="SELECT A PROJECT" list="matchingProjects">
     </div>
     <div class="col-xs-2">
         <div class="datepicker input-append date">
-            <input id="date" data-format="yyyy-MM-dd" type="text" class="form-control col-xs-10" placeholder="YYYY-MM-DD" style="width:80%;">
+            <input ng-model="record.date" id="date" data-format="yyyy-MM-dd" type="text" class="form-control col-xs-10" placeholder="YYYY-MM-DD" style="width:80%;">
             <span
                 class="add-on col-xs-2 text-center"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
         </div>
     </div>
     <div class="col-xs-2">
         <div class="timepicker input-append">
-            <input id="time" data-format="hh:mm:ss" type="text" class="form-control col-xs-10" placeholder="hh:mm:ss" style="width:80%;">
+            <input ng-model="record.time" id="time" data-format="hh:mm:ss" type="text" class="form-control col-xs-10" placeholder="hh:mm:ss" style="width:80%;">
             <span
                 class="add-on col-xs-2 text-center"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
         </div>

@@ -9,5 +9,5 @@
  */
 angular.module('timeLogApp')
   .controller('TimeLogCtrl', ['$scope', 'firebase', function($scope, firebase) {
-    $scope.test = firebase.get(); 
+    $scope.records = firebase.get();
 }]);

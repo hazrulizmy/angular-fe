@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -42,4 +43,82 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .directive('timepicker', function ($parse) {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: false,
+      compile: function (element, attrs) {
+
+        var modelAccessor = $parse(attrs.ngModel);
+
+        var html = "<div class='input-append'><input ng-model='"+attrs.ngModel+"' ng-change='"+attrs.ngChange+"' data-format='hh:mm:ss' type='text' class='form-control col-xs-10' placeholder='hh:mm:ss' style='width:80%;'></input><span class='add-on col-xs-2 text-center'><i data-time-icon='glyphicon glyphicon-time' data-date-icon='glyphicon glyphicon-calendar'></i></span></div>";
+
+        var newElem = $(html);
+        element.replaceWith(newElem);
+
+        return function (scope, element, attrs, controller) {
+
+          var processChange = function () {
+            var time = $(attrs.id).val();
+
+            scope.$apply(function (scope) {
+              // Change bound variable
+              modelAccessor.assign(scope, time);
+            });
+          };
+
+          element.datetimepicker({
+            pickDate: false
+          });
+
+          scope.$watch(modelAccessor, function (val) {
+            var time = $(attrs.id).val();
+            $(attrs.id).val();
+          });
+
+        };
+
+      }
+    };
+  }).directive('datepicker', function ($parse) {
+    return {
+      restrict: "E",
+      replace: true,
+      transclude: false,
+      compile: function (element, attrs) {
+
+        var modelAccessor = $parse(attrs.ngModel);
+
+        var html = "<div input-append date'><input ng-model='"+attrs.ngModel+"' ng-change='"+attrs.ngChange+"' data-format='yyyy-MM-dd' type='text' class='form-control col-xs-10' placeholder='yyyy-MM-dd' style='width:80%;'><span class='add-on col-xs-2 text-center'><i data-time-icon='glyphicon glyphicon-time' data-date-icon='glyphicon glyphicon-calendar'></i></span></div>";
+
+        var newElem = $(html);
+        element.replaceWith(newElem);
+
+        return function (scope, element, attrs, controller) {
+
+          var processChange = function () {
+            var time = $(attrs.id).val();
+
+            scope.$apply(function (scope) {
+              // Change bound variable
+              modelAccessor.assign(scope, time);
+            });
+          };
+
+          element.datetimepicker({
+            pickTime: false
+          });
+
+          scope.$watch(modelAccessor, function (val) {
+            var time = $(attrs.id).val();
+            $(attrs.id).val();
+          });
+
+        };
+
+      }
+    };
   });
+

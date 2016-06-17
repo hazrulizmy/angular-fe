@@ -21,18 +21,10 @@
         <input ng-model="record.project" id="project" type="text" class="form-control awesomplete searchProjects" placeholder="SELECT A PROJECT" list="matchingProjects">
     </div>
     <div class="col-xs-2">
-        <div class="datepicker input-append date">
-            <input ng-model="record.date" id="date" data-format="yyyy-MM-dd" type="text" class="form-control col-xs-10" placeholder="YYYY-MM-DD" style="width:80%;">
-            <span
-                class="add-on col-xs-2 text-center"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
-        </div>
+        <datepicker ng-model="record.date" ng-change="saveRecord(record)" />
     </div>
     <div class="col-xs-2">
-        <div class="timepicker input-append">
-            <input ng-model="record.time" id="time" data-format="hh:mm:ss" type="text" class="form-control col-xs-10" placeholder="hh:mm:ss" style="width:80%;">
-            <span
-                class="add-on col-xs-2 text-center"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
-        </div>
+        <timepicker ng-model="record.time" ng-change="saveRecord(record)" />
     </div>
     <div class="col-xs-1"><span id="add" class="glyphicon glyphicon-plus createRecord" aria-hidden="true" style="color:green"></span></div>
 </div>

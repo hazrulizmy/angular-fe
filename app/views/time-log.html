@@ -15,16 +15,19 @@
         <input ng-model="record.id" id="devId" class="form-control" placeholder="ID">
     </div>
     <div class="col-xs-3">
-        <input ng-model="record.name" id="name" type="text" class="form-control" placeholder="DEVELOPER NAME">
+        <input ng-model="record.name" ng-change="saveRecord(record)" id="name" type="text" class="form-control"
+               placeholder="DEVELOPER NAME">
     </div>
     <div class="col-xs-3">
-        <input ng-model="record.project" id="project" type="text" class="form-control awesomplete searchProjects" placeholder="SELECT A PROJECT" list="matchingProjects">
+        <input ng-model="record.project" id="project" type="text" class="form-control awesomplete searchProjects"
+               placeholder="SELECT A PROJECT" list="matchingProjects">
     </div>
     <div class="col-xs-2">
-        <datepicker ng-model="record.date" ng-change="saveRecord(record)" />
+        <datepicker ng-model="record.date" ng-change="saveRecord(record)"/>
     </div>
     <div class="col-xs-2">
-        <timepicker ng-model="record.time" ng-change="saveRecord(record)" />
+        <timepicker ng-model="record.time" ng-change="saveRecord(record)"/>
     </div>
-    <div class="col-xs-1"><span id="add" class="glyphicon glyphicon-plus createRecord" aria-hidden="true" style="color:green"></span></div>
+    <div class="col-xs-1"><span id="add" class="glyphicon glyphicon-plus createRecord" aria-hidden="true"
+                                style="color:green"></span></div>
 </div>

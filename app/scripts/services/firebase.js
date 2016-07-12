@@ -16,9 +16,8 @@ angular.module('timeLogApp').service('firebase', ['$http', function ($http) {
 
   this.saveRecord = function (record) {
     // return a Promise object so that the caller can handle success/failure
-    console.log(record);
     var resourceUrl = "https://time-log.firebaseio.com/record/" + record.id + ".json";
-    return $http({ method: 'PUT', url: resourceUrl, record });
+    return $http({ method: 'PUT', url: resourceUrl, data: record });
   }
 
   this.updateRecord = function (record) {
